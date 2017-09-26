@@ -16,12 +16,26 @@ define(['bytepushers', 'TestClass'], function(BytePushers) {
 
         it('should be able to call public methods', function () {
             var testClass = new TestClass();
-
             expect(testClass).toBeDefined();
+
+
+            /*expect(testClass.findType()).toBeDefined();
+            expect(testClass.getName()).toBeDefined();
+            expect(testClass.getName2()).toBeDefined();
+            expect(testClass.findType["doTest"]).toBeDefined();
+            expect(testClass.getName["doTest"]).toBeDefined();
+            expect(testClass.getName2["doTest"]).toBeDefined();
+            expect(testClass.findType.doTest()).toEqual("doingtest");
+            expect(testClass.getName.doTest()).toEqual("doingtest");
+            expect(testClass.getName2.doTest()).toEqual("doingtest");
+            */
+
 
         });
 
         it('should not be able to call private methods', function () {
+            //var testPrivate = new
+
 
         });
 
