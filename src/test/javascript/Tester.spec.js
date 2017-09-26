@@ -12,5 +12,19 @@ define(['bytepushers', 'TestClass'], function(BytePushers) {
             expect(tester._privates["getType"]).toBeDefined();
             expect(tester._privates.getType()).toEqual("JavaScript");
         });
+
+
+        it('should be able to call public methods', function () {
+            var testClass = new TestClass();
+
+            expect(testClass).toBeDefined();
+
+        });
+
+        it('should not be able to call private methods', function () {
+
+        });
+
+
     });
 });

@@ -38,6 +38,10 @@ function TestClass(){
         return "doing test";
     }
 
+    this.findType = function () {
+        return getType();
+    };
+
     getType();
     someArray;
     someProperty;
