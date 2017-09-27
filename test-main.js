@@ -12,14 +12,14 @@ require.config({
 
   paths: {
       'bytepushers': 'src/main/javascript/Tester',
-      'TestClass': 'src/test/javascript/support/TestClass'
+      'Employee': 'src/test/javascript/support/Employee'
   },
 
   shim: {
       bytepushers: {
           exports: 'BytePushers'
       },
-      TestClass: {
+      Employee: {
           deps: ['bytepushers']
       }
   },
