@@ -14,18 +14,28 @@ define(['bytepushers', 'Employee'], function(BytePushers) {
         });
 
 
-        /*it('should be able to call public methods', function () {
-            var emp = new Employee(null, "M", undefined, "07/2/1970));
+        it('should be able to call public methods', function () {
+            var actualBirthDate = "07/2/1970";
+            var expectedAge = new Date().getFullYear() - new Date(actualBirthDate).getFullYear();
+            var emp = new Employee(null, "M", undefined, actualBirthDate, null , "part-time", undefined);
 
             expect(emp.getFullName).toBeDefined();
+            expect(emp.getFullName()).toEqual("Sally M Sue");
+            expect(emp.getDepartment).toBeDefined();
+            expect(emp.getDepartment()).toEqual("Human Resources");
+            expect(emp.getAge).toBeDefined();
+            expect(emp.getAge()).toEqual(expectedAge);
+            expect(emp.getType).toBeDefined();
+            expect(emp.getType()).toEqual("part-time");
 
-
-        });*/
+        });
 
         /*it('should not be able to call private methods', function () {
-            var emp = new Employee(null, "M", undefined, "07/2/1970));
+            var actualBirthDate = "07/2/1970";
+            var expectedAge = new Date().getFullYear() - new Date(actualBirthDate).getFullYear();
+            var emp = new Employee(null, "M", undefined, actualBirthDate, null , "part-time", undefined);
 
-            expect(emp).toBeDefined();
+            expect(emp).not.toBeDefined();
         });*/
 
 
