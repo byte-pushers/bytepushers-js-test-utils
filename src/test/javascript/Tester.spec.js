@@ -41,7 +41,5 @@ define(['bytepushers', 'Employee'], function(BytePushers) {
             expect(emp.calculateAge).not.toBeDefined();
             expect(emp.getSalary).not.toBeDefined();
         });
-
-
     });
 });
