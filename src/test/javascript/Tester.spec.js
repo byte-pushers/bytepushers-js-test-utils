@@ -14,6 +14,10 @@ define(['bytepushers', 'Employee'], function(BytePushers) {
         });
 
 
+        //TODO: Create another test that shows that tester can call public metods.
+    });
+
+    describe("Test Class Employee", function () {
         it('should be able to call public methods', function () {
             var actualBirthDate = "07/2/1970";
             var expectedAge = new Date().getFullYear() - new Date(actualBirthDate).getFullYear();
