@@ -30,13 +30,17 @@ define(['bytepushers', 'Employee'], function(BytePushers) {
 
         });
 
-        /*it('should not be able to call private methods', function () {
+        it('should not be able to call private methods', function () {
             var actualBirthDate = "07/2/1970";
             var expectedAge = new Date().getFullYear() - new Date(actualBirthDate).getFullYear();
             var emp = new Employee(null, "M", undefined, actualBirthDate, null , "part-time", undefined);
 
-            expect(emp).not.toBeDefined();
-        });*/
+            expect(emp.getFirstName).not.toBeDefined();
+            expect(emp.getMiddleName).not.toBeDefined();
+            expect(emp.getLastName).not.toBeDefined();
+            expect(emp.calculateAge).not.toBeDefined();
+            expect(emp.getSalary).not.toBeDefined();
+        });
 
 
     });
