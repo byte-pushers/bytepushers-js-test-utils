@@ -2,15 +2,25 @@
 Byte Pushers Core JavaScript library that supports core object extensions and general utilities that can be used as base
 fundamental classes.
 
+## Installation
+
+**npm install bytepushers-js-test-utils**
+- Install Karma
+- Install Bower
+
 ## Synopsis
 
 Byte Pushers Core JavaScript library that supports common object extensions and general utilities that can be used as base
-fundamental classes.
+fundamental classes. Want to be able UNIT test class
 
 ## Code Example
 
 Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
-
+In order to use the tester you have to create an instance then you call your class reference like this.
+```javascript
+emp._privates.getFirstName()  //returns "Sally"
+```
+Example you have employee class and you want to test that class, this is how you test those methods.
 ## Motivation
 
 The motivation behind this project is to create a collection of common base functionality that can be extended and resused 
