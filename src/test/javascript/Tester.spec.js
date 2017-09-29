@@ -20,8 +20,7 @@ define(['bytepushers', 'Employee'], function(BytePushers) {
         });
 
 
-        //TODO: Create another test that shows that tester can call public metods.
-       it('should be able to call public methods', function () {
+        it('should be able to call public methods', function () {
             var emp = (new BytePushers.Tester()).getInstance(Employee);
 
             expect(emp.getFullName).toBeDefined();
