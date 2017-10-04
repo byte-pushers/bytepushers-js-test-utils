@@ -19,39 +19,35 @@ fundamental classes.
 ## Code Example
 
 [comment]: <Show what the library does as concisely as possible, developers should be able to figure out how your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.>
-In this test we have made an employee class for all the test cases as an example. You can replace the employee class with what ever you want. You can reference that class in the **Employee.js** file.
+In this example, we are testing our Employee class. You can see a reference to that class in the**Employee.js**file.
 
-In order to use the tester you have to create an instance then you call your class reference like this:
+In order to use the tester, you have to create an instance of the Tester and then reference the test class Employee like this:
 
 ```javascript
 var emp = (new BytePushers.Tester()).getInstance(Employee)
-
-//Now we are going to create a new instance with values that are different from the default values stored within the employee constructor.
-
-
-var emp = new Employee(null, "M", undefined, actualBirthDate, null , "part-time", undefined);
-
 ```
-
-To call the private methods:
+This will return an instance of the Employee class that exposes the private methods in the "_privates" variable.  To call the private methods on the Employee Class, do the following:
 ```javascript
 emp._privates.getFirstName()  //returns "Sally" by default
-
 ```
 
-To call public methods:
+To call public methods on the Employee class do the following:
 ```javascript
 emp.getFullName()   //returns "Sally Mae Sue" by default
 ```
-Use these to test the methods within your constructor. These examples can also be found in the **Tester.spec.js file**.
+To see a working examples of how to use the Tester class see the**Tester.spec.js**file located in project.
 
 [comment]: <Example you have employee class and you want to test that class, this is how you test those methods.>
 ## Motivation
+
+The motivation behind the creation of the Tester.js file was to be able to unit test both public and private methods of a JavaScript Custom Class.
 
 [comment]: <The motivation behind this project is to create a collection of common base functionality that can be extended and resused in larger projects.>
 The test ran should show you whether your methods are public or private. This helps you keep all your methods within the correct scope which in hindsight lets you know whether you can call a certain method.
 
 ## API Reference
+
+getInstance(ClassReference) method - Returns an instance of the ClassReference with exposed private methods in the "_privates" object.  Use dot notation to access private methods.  For example, ClassReferenceInstance._privates.somePrivateMethodName() would call the private method somePrivateMethodName.
 
 [comment]: <Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.>
 
