@@ -61,6 +61,8 @@ define(['bytepushers', 'Employee'], function(BytePushers) {
         it('should be able to call private methods', function () {
             var emp = (new BytePushers.Tester()).getInstance(Employee);
             expect(emp).toBeDefined();
+            expect(emp._privates).toBeDefined();
+            expect(emp._privates["getFirstName"]).toBeDefined();
         });
      });
 });
