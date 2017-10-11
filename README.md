@@ -11,7 +11,7 @@ fundamental classes.
 Byte Pushers Core JavaScript library that supports common object extensions and general utilities that can be used as base
 fundamental classes.
 ## Code Example
-In this example, we are testing our Employee class. You can see a reference to that class in the**Employee.js**file.
+In this example, we are testing our Employee class. You can see a reference to that class in the **Employee.js** file.
 In order to use the tester, you have to create an instance of the Tester and then reference the test class Employee like this:
 ```javascript
 var emp = (new BytePushers.Tester()).getInstance(Employee)
