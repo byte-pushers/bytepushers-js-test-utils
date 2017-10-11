@@ -78,12 +78,8 @@
             funcString += "\n}";
             funcString +=")(" + getConstructorParamsAsString(constructorParams) + ")";
 
-            console.info("Tester.getInstance() method: funcString:\n" + funcString);
             var instance = eval(funcString);
-            console.info("Tester.getInstance() method: funcString: instance", instance);
-            console.info("Tester.getInstance() method: classAsString:\n" + classAsString);
             instance._initPrivates(classAsString);
-            console.info("Tester.getInstance() method: funcString: instance", instance);
             // delete the initiation functions
             delete instance._initPrivates;
 

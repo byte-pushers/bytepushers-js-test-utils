@@ -35,7 +35,7 @@ define(['bytepushers', 'Employee'], function (BytePushers) {
         it('should be able to create instance via constructor parameters', function () {
             var actualBirthDate = "07/2/1970";
             var expectedAge = new Date().getFullYear() - new Date(actualBirthDate).getFullYear();
-            var emp = (new BytePushers.Tester()).getInstance(Employee, ["Tim", "M", "Jones", actualBirthDate, null, "part-time", undefined]);
+            var emp = (new BytePushers.Tester()).getInstance(Employee, ["Tim", "M", "Jones", actualBirthDate, null, "full-time", undefined]);
 
             expect(emp.getFullName).toBeDefined();
             expect(emp.getFullName()).toEqual("Tim M Jones");
@@ -44,7 +44,7 @@ define(['bytepushers', 'Employee'], function (BytePushers) {
             expect(emp.getAge).toBeDefined();
             expect(emp.getAge()).toEqual(expectedAge);
             expect(emp.getType).toBeDefined();
-            expect(emp.getType()).toEqual("part-time");
+            expect(emp.getType()).toEqual("full-time");
         });
     });
 
