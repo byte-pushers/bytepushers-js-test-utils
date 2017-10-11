@@ -29,7 +29,16 @@ To see a working examples of how to use the Tester class see the **Tester.spec.j
 The motivation behind the creation of the Tester.js file was to be able to unit test both public and private methods of a JavaScript Custom Class.
 The test ran should show you whether your methods are public or private. This helps you keep all your methods within the correct scope which in hindsight lets you know whether you can call a certain method.
 ## API Reference
-getInstance(ClassReference) method - Returns an instance of the ClassReference with exposed private methods in the "_privates" object.  Use dot notation to access private methods.  For example, ClassReferenceInstance._privates.somePrivateMethodName() would call the private method somePrivateMethodName.
+| getInstance(ClassReference) method | Returns an instance of the ClassReference with exposed private methods in the "_privates" object |
+| :---------------------------------| :------------------------------------------------------------------------------------------------ |
+
+|                          Method                          |                                             Function                                             |   |   |   |   |
+|:--------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|---|---|---|---|
+| ClassReferenceInstance._privates.somePrivateMethodName() | call the private method somePrivateMethodName                                                    |   |   |   |   |
+| getInstance(ClassReference) method                       | Returns an instance of the ClassReference with exposed private methods in the "_privates" object |   |   |   |   |
+|                                                          |                                                                                                  |   |   |   |   |
+
+Use dot notation to access private methods.  For example, ClassReferenceInstance._privates.somePrivateMethodName() would call the private method somePrivateMethodName.
 ## Tests
 When running test within this module, we use Jasmine. For beginners, use this link right [here](https://jasmine.github.io/pages/getting_started.html). This will show you the documenation on how Jasmine works for testing. Now, this is an example in our **Tester.spec.js** file.
 ```javascript
