@@ -17,7 +17,29 @@
 
 
     BytePushers.Tester = function (){
-        this.getInstance = function(classRef){
+        function isString (value) {
+            return typeof value === 'string' || value instanceof String;
+        }
+
+        function getConstructorParamsAsString(constructorParams) {
+            var constructorParamsString = "";
+
+            if (Array.isArray(constructorParams)) {
+                constructorParams.forEach(function (constructorParam) {
+                    if (isString(constructorParam)) {
+                        constructorParamsString += "'" + constructorParam + "',";
+                    } else {
+                        constructorParamsString += constructorParam + ",";
+                    }
+                });
+
+                constructorParamsString = constructorParamsString.substring(0, constructorParamsString.length-1);
+            }
+
+            return constructorParamsString;
+        }
+
+        this.getInstance = function(classRef, constructorParams){
             // get the functions as a string
             var classAsString = classRef.toString();
 
@@ -54,11 +76,14 @@
             funcString += "\t\t}\n";
             funcString += "\t};";
             funcString += "\n}";
-            funcString +=")();";
+            funcString +=")(" + getConstructorParamsAsString(constructorParams) + ")";
 
+            console.info("Tester.getInstance() method: funcString:\n" + funcString);
             var instance = eval(funcString);
+            console.info("Tester.getInstance() method: funcString: instance", instance);
+            console.info("Tester.getInstance() method: classAsString:\n" + classAsString);
             instance._initPrivates(classAsString);
-
+            console.info("Tester.getInstance() method: funcString: instance", instance);
             // delete the initiation functions
             delete instance._initPrivates;
 
