@@ -1,8 +1,8 @@
 /**
  * Created by tonte on 9/19/17.
  */
-define(['bytepushers', 'Employee'], function(BytePushers) {
-    describe("Tester", function(){
+define(['bytepushers', 'Employee'], function (BytePushers) {
+    describe("Tester", function () {
         it('should be able to call private methods', function () {
             var emp = (new BytePushers.Tester()).getInstance(Employee);
             expect(emp).toBeDefined();
@@ -19,7 +19,6 @@ define(['bytepushers', 'Employee'], function(BytePushers) {
             expect(emp._privates.getSalary()).toEqual(50000);
         });
 
-
         it('should be able to call public methods', function () {
             var emp = (new BytePushers.Tester()).getInstance(Employee);
 
@@ -31,16 +30,29 @@ define(['bytepushers', 'Employee'], function(BytePushers) {
             expect(emp.getAge()).toEqual(20);
             expect(emp.getType).toBeDefined();
             expect(emp.getType()).toEqual("full-time");
+        });
 
+        it('should be able to create instance via constructor parameters', function () {
+            var actualBirthDate = "07/2/1970";
+            var expectedAge = new Date().getFullYear() - new Date(actualBirthDate).getFullYear();
+            var emp = (new BytePushers.Tester()).getInstance(Employee, ["Tim", "M", "Jones", actualBirthDate, null, "part-time", undefined]);
 
-       });
+            expect(emp.getFullName).toBeDefined();
+            expect(emp.getFullName()).toEqual("Tim M Jones");
+            expect(emp.getDepartment).toBeDefined();
+            expect(emp.getDepartment()).toEqual("Human Resources");
+            expect(emp.getAge).toBeDefined();
+            expect(emp.getAge()).toEqual(expectedAge);
+            expect(emp.getType).toBeDefined();
+            expect(emp.getType()).toEqual("part-time");
+        });
     });
 
     describe("Employee class", function () {
         it('should be able to call public methods', function () {
             var actualBirthDate = "07/2/1970";
             var expectedAge = new Date().getFullYear() - new Date(actualBirthDate).getFullYear();
-            var emp = new Employee(null, "M", undefined, actualBirthDate, null , "part-time", undefined);
+            var emp = new Employee(null, "M", undefined, actualBirthDate, null, "part-time", undefined);
 
             expect(emp.getFullName).toBeDefined();
             expect(emp.getFullName()).toEqual("Sally M Sue");
@@ -50,12 +62,11 @@ define(['bytepushers', 'Employee'], function(BytePushers) {
             expect(emp.getAge()).toEqual(expectedAge);
             expect(emp.getType).toBeDefined();
             expect(emp.getType()).toEqual("part-time");
-
         });
 
         it('should not be able to call private methods', function () {
             var actualBirthDate = "07/2/1970";
-            var emp = new Employee(null, "M", undefined, actualBirthDate, null , "part-time", undefined);
+            var emp = new Employee(null, "M", undefined, actualBirthDate, null, "part-time", undefined);
 
             expect(emp.getFirstName).not.toBeDefined();
             expect(emp.getMiddleName).not.toBeDefined();
