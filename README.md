@@ -3,8 +3,7 @@ Byte Pushers Core JavaScript library that supports core object extensions and ge
 fundamental classes.
 ## Installation
 **npm install bytepushers-js-test-utils**
-**npm install karma**
-**npm install bower**
+
 - Install Karma
 - Install Bower
 
@@ -25,7 +24,7 @@ To call public methods on the Employee class do the following:
 ```javascript
 emp.getFullName()   //returns "Sally Mae Sue" by default
 ```
-To see a working examples of how to use the Tester class see the**Tester.spec.js**file located in project.
+To see a working examples of how to use the Tester class see the **Tester.spec.js** file located in project.
 ## Motivation
 The motivation behind the creation of the Tester.js file was to be able to unit test both public and private methods of a JavaScript Custom Class.
 The test ran should show you whether your methods are public or private. This helps you keep all your methods within the correct scope which in hindsight lets you know whether you can call a certain method.
