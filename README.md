@@ -30,12 +30,14 @@ The motivation behind the creation of the Tester.js file was to be able to unit 
 The test ran should show you whether your methods are public or private. This helps you keep all your methods within the correct scope which in hindsight lets you know whether you can call a certain method.
 ## API Reference
 
-|                          Method                          |                                             Function                                             |
-|:--------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
-| ClassReferenceInstance._privates.somePrivateMethodName() | call the private method somePrivateMethodName                                                    |
-| getInstance(ClassReference) method                       | Returns an instance of the ClassReference with exposed private methods in the "_privates" object |
+|                          Method                         |                                             Function                                            |
+|:--------------------------------------------------------|:------------------------------------------------------------------------------------------------|
+| getInstance(ClassReference) method                     | Returns an instance of the ClassReference with exposed private methods in the "_privates" object|
+| getInstance(ClassReference, [ ] );                     | Creates new instance via constructor parameters                                                 |
+| ClassReferenceInstance._privates.somePrivateMethodName()| Calls the private method somePrivateMethodName                                                  |
 
-Use dot notation to access private methods.
+
+Use dot notation to access private methods. Class content goes inside of the array for the second parameter.
 ## Tests
 When running test within this module, we use Jasmine. For beginners, use this link right [here](https://jasmine.github.io/pages/getting_started.html). This will show you the documenation on how Jasmine works for testing. Now, this is an example in our **Tester.spec.js** file.
 ```javascript
@@ -47,10 +49,26 @@ define(['bytepushers', 'Employee'], function(BytePushers) {
             expect(emp._privates).toBeDefined();
             expect(emp._privates["getFirstName"]).toBeDefined();
         });
+
+//In this example we make sure that "emp" is defined after declaring "emp" as a variable.
+
+        it('should be able to create instance via constructor parameters', function () {
+            var actualBirthDate = "07/2/1970";
+            var expectedAge = new Date().getFullYear() - new Date(actualBirthDate).getFullYear();
+            var emp = (new BytePushers.Tester()).getInstance(Employee, ["Tim", "M", "Jones", actualBirthDate, null, "full-time", undefined]);
+
+            expect(emp.getFullName).toBeDefined();
+            expect(emp.getFullName()).toEqual("Tim M Jones");
+        });
+
+//In this example, we are making sure that we can put in an array as the second parameter and create the new instance
+
      });
 });
-//In this example we make sure that "emp" is defined after declaring "emp" as a variable.
 ```
+
+
+
 ## Contributors
 Byte Pushers
 ## License
