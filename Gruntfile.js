@@ -24,7 +24,8 @@ module.exports = function (grunt) {
             javascript: {
                 options: {
                     edition: 'latest',
-                    errorsOnly: true
+                    errorsOnly: true,
+                    failOnError: false
                 },
                 src: ['src/main/javascript/**/*.js']
             }
@@ -63,7 +64,7 @@ module.exports = function (grunt) {
                     mangle: true
                 },
                 files: {
-                    'build/<%= pkg.name %>.min.js': ['build/src/main/javascript/software.bytepushers.*.js']
+                    'build/<%= pkg.name %>.min.js': ['build/src/main/javascript/Tester.js']
                 }
             }
         },

@@ -1,10 +1,12 @@
 /**
  * Created by tonte on 9/19/17.
  */
-/* jshint -W108, -W109 */
-/*jslint bitwise: true, unparam: true, regexp: true*/
+/*global window*/
+/* jslint bitwise: true, unparam: true, regexp: true, eval: true*/
+/* jshint -W108, -W109, -W061 */
 
-(function (window, document) {
+
+(function (window) {
     'use strict';
     var BytePushers;
 
@@ -15,31 +17,32 @@
         BytePushers = window.BytePushers;
     }
 
+    BytePushers.Tester = function () {
+        var _tester = {};
 
-    BytePushers.Tester = function (){
-        function isString (value) {
+        _tester.isString = function (value) {
             return typeof value === 'string' || value instanceof String;
-        }
+        };
 
-        function getConstructorParamsAsString(constructorParams) {
+        _tester.getConstructorParamsAsString = function (constructorParams) {
             var constructorParamsString = "";
 
             if (Array.isArray(constructorParams)) {
                 constructorParams.forEach(function (constructorParam) {
-                    if (isString(constructorParam)) {
+                    if (_tester.isString(constructorParam)) {
                         constructorParamsString += "'" + constructorParam + "',";
                     } else {
                         constructorParamsString += constructorParam + ",";
                     }
                 });
 
-                constructorParamsString = constructorParamsString.substring(0, constructorParamsString.length-1);
+                constructorParamsString = constructorParamsString.substring(0, constructorParamsString.length - 1);
             }
 
             return constructorParamsString;
-        }
+        };
 
-        this.getInstance = function(classRef, constructorParams){
+        _tester.getInstance = function (classRef, constructorParams) {
             // get the functions as a string
             var classAsString = classRef.toString();
 
@@ -62,7 +65,7 @@
             funcString += "\t\tif(pf != null){\n";
             funcString += "\t\t\tfor (var i = 0, ii = pf.length; i < ii; i++){\n";
             funcString += "\t\t\t\tvar fn = pf[i].replace(/function\\s+/, '').replace('(', '');\n";
-            funcString += "\t\t\t\tif('"+classRef.name+"' != fn){\n";
+            funcString += "\t\t\t\tif('" + classRef.name + "' != fn){\n";
             funcString += "\t\t\t\t\tthis._privates[fn] = eval(fn);\n";
             funcString += "\t\t\t\t}\n";
             funcString += "\t\t\t}\n";
@@ -76,7 +79,7 @@
             funcString += "\t\t}\n";
             funcString += "\t};";
             funcString += "\n}";
-            funcString +=")(" + getConstructorParamsAsString(constructorParams) + ")";
+            funcString += ")(" + _tester.getConstructorParamsAsString(constructorParams) + ")";
 
             var instance = eval(funcString);
             instance._initPrivates(classAsString);
@@ -85,5 +88,7 @@
 
             return instance;
         };
-    }
-}(window, document));
+
+        return _tester;
+    };
+}(window));
